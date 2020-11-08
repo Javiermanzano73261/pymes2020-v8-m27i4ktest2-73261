@@ -19,6 +19,8 @@ import { InicioComponent } from "./components/inicio/inicio.component";
 import { ArticulosComponent } from "./components/articulos/articulos.component";
 import { ArticulosFamiliasComponent } from "./components/articulos-familias/articulos-familias.component";
 import { ModalDialogComponent } from "./components/modal-dialog/modal-dialog.component";
+import { ServiciosComponent } from "./components/servicios/servicios.component";
+import { ServiciosService } from './services/servicios.service';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { ModalDialogComponent } from "./components/modal-dialog/modal-dialog.com
     ArticulosComponent,
     ArticulosFamiliasComponent,
     ModalDialogComponent,
+    ServiciosComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { ModalDialogComponent } from "./components/modal-dialog/modal-dialog.com
       { path: '', redirectTo: '/inicio', pathMatch: 'full' },
       { path: 'inicio', component: InicioComponent },
       { path: 'articulos', component: ArticulosComponent },
-      { path: 'articulosfamilias', component: ArticulosFamiliasComponent }
+      { path: 'articulosfamilias', component: ArticulosFamiliasComponent },
+      { path: 'servicios', component: ServiciosComponent },
     ]),
     NgbPaginationModule,
     NgbModalModule,
@@ -45,7 +49,8 @@ import { ModalDialogComponent } from "./components/modal-dialog/modal-dialog.com
   entryComponents: [ModalDialogComponent],
   providers: [
      {provide: APP_BASE_HREF, useValue : '/' },
-    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true},
+     {provide: ServiciosService }
   ],
   bootstrap: [AppComponent]
 })
